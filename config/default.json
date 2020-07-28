@@ -1,0 +1,3 @@
+{
+	"mongoURI": "mongodb://localhost/gd_connect"
+}

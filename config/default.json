@@ -1,4 +1,6 @@
 {
 	"mongoURI": "mongodb://localhost/gd_connect",
-	"jwtSecret": "secret-token"
+	"jwtSecret": "secret-token",
+	"githubClientId": "7e9525fc3c3d624e4eef",
+	"githubClientSecret": "fcbb0f20895011a5fcc5ffa0e111d1bfb575b703"
 }

@@ -22,7 +22,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 // @route 	POST api/auth
-// @desc 	Authenticate user and get token
+// @desc 	Authenticate user and get token (login)
 // @access 	Public
 router.post('/', [
 	check('email', 'Please include a valid email.').isEmail(),
@@ -60,7 +60,7 @@ router.post('/', [
 		jwt.sign(
 			payload, 
 			config.get('jwtSecret'), 
-			{ expiresIn: 360000 }, // 3600 for prod
+			// { expiresIn: 360000 }, // 3600 for prod, perm for dev
 			(err, token) => {
 				if (err) throw err;
 				res.json({ token });

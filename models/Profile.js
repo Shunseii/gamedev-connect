@@ -25,7 +25,7 @@ const ProfileSchema = new mongoose.Schema({
 	bio: {
 		type: String
 	},
-	githubusername: {
+	githubUser: {
 		type: String
 	},
 	experience: [
@@ -66,7 +66,7 @@ const ProfileSchema = new mongoose.Schema({
 				type: String,
 				required: true
 			},
-			fieldofstudy: {
+			fieldOfStudy: {
 				type: String,
 				required: true
 			},

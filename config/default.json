@@ -1,3 +1,4 @@
 {
-	"mongoURI": "mongodb://localhost/gd_connect"
+	"mongoURI": "mongodb://localhost/gd_connect",
+	"jwtSecret": "secret-token"
 }

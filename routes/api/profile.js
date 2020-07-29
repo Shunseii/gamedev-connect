@@ -185,6 +185,29 @@ router.put('/experience', [
 	}
 });
 
+// @route 	DELETE api/profile/experience/:exp_id
+// @desc 	Deletes experience from profile.
+// @access 	Private
+router.delete('/experience/:exp_id', auth, async (req, res) => {
+	try {
+		const profile = await Profile.findOne({ user: req.user.id });
+
+		// Get remove index
+		const removeIndex = profile.experience
+			.map(item => item.id)
+			.indexOf(req.params.ex_id);
+
+		// Removes experience from the index
+		profile.experience.splice(removeIndex, 1);
+		await profile.save();
+
+		res.json(profile);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server error.');
+	}
+});
+
 // @route 	DELETE api/profile/
 // @desc 	Deletes profile, user, and posts.
 // @access 	Private

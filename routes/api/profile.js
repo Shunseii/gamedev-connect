@@ -139,6 +139,52 @@ router.post('/', [
 	}
 });
 
+// @route 	PUT api/profile/experience
+// @desc 	Updates profile with experiences.
+// @access 	PRIVATE
+router.put('/experience', [
+	auth,
+	[
+		check('title', 'Title is required.').not().isEmpty(),
+		check('company', 'Company is required.').not().isEmpty(),
+		check('from', 'Starting date is required.').not().isEmpty()
+	]
+], async (req, res) => {
+	const errors = validationResult(req);
+
+	if (!errors.isEmpty()) {
+		return res.status(400).json({ errors: errors.array() });
+	}
+
+	const {
+		title,
+		company,
+		from,
+		desc,
+		to,
+		location,
+		current
+	} = req.body
+
+	const newExp = {title, company, from};
+
+	if (location) newExp.location = location;
+	if (to) newExp.to = to;
+	if (current) newExp.current = current;
+	if (desc) newExp.desc = desc;
+
+	try {
+		const profile = await Profile.findOne({ user: req.user.id });
+		profile.experience.unshift(newExp); // push to the beginning of array
+		await profile.save();
+
+		res.json(profile);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server error.');
+	}
+});
+
 // @route 	DELETE api/profile/
 // @desc 	Deletes profile, user, and posts.
 // @access 	Private

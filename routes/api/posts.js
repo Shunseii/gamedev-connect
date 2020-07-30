@@ -222,7 +222,7 @@ router.delete('/:post_id/comment/:comment_id', auth, async (req, res) => {
 
 		// Check if comment exists
 		if (removeIndex === -1) {
-			res.status(400).json({ msg: 'Comment not found.' });
+			return res.status(400).json({ msg: 'Comment not found.' });
 		}
 
 		const commentToDel = post.comments[removeIndex];

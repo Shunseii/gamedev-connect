@@ -11,7 +11,7 @@ const Navbar = () => {
 						shadow-inner bg-gray-100'
 		>
 			<h1>
-				<Link className='text-xl font-bold' to='/'>Gamedev Connect</Link>
+				<Link className='text-xl font-semibold' to='/'>Gamedev Connect</Link>
 			</h1>
 			<ul className='inline-flex w-1/4 justify-around'>
 				<li className='hover:text-gray-700'><Link to="/">Devs</Link></li>

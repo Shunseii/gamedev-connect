@@ -142,15 +142,14 @@ const Register = (props) => {
 					/>
 				</div>
 				<div className='flex items-center'>
-					<button 
+					<input 
 						className='bg-blue-500 text-white font-bold rounded 
 									px-4 py-2
 									transition duration-200 ease-in-out hover:bg-blue-400
 									rounded focus:outline-none focus:shadow-outline'
-						type='button'
-					>
-						Register
-					</button>
+						type='submit'
+						value='Register'
+					/>
 				</div>
 			</form>
 		</div>

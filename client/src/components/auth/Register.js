@@ -4,7 +4,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { setAlert } from '../../actions/alert';
 
-const Register = (props) => {
+const Register = ({ setAlert }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -21,7 +21,7 @@ const Register = (props) => {
 	const onSubmit = async e => {
 		e.preventDefault();
 		if (password !== password2) {
-			props.setAlert('Passwords do not match.', 'failure');
+			setAlert('Passwords do not match.', 'failure');
 		} else {
 			const newUser = {
 				name,

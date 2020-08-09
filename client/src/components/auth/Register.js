@@ -47,48 +47,113 @@ const Register = (props) => {
 	};
 
 	return (
-		<Fragment>
-			<h1>Sign Up</h1>
-			<p>Create your account</p>
+		<div className='flex flex-col
+						shadow-md rounded
+						px-8 pt-2 pb-8 mb-4'
+		>
+			<h4 className='text-sm'>New users</h4>
+			<h2 className='pb-4 text-4xl text-bold'>Sign Up</h2>
 
 			<form onSubmit={e => onSubmit(e)}>
-				<input 
-					type='text' 
-					placeholder='Name' 
-					name='name' 
-					value={name} 
-					onChange={e => onChange(e)}
-					required 
-				/>
-				<input 
-					type='email' 
-					placeholder='Email Address' 
-					name='email'
-					value={email}
-					onChange={e => onChange(e)}
-					required
-				/>
-				<input 
-					type='password' 
-					placeholder='Password' 
-					name='password' 
-					minLength='6'
-					value={password}
-					onChange={e => onChange(e)}
-					required
-				/>
-				<input 
-					type='password' 
-					placeholder='Re-enter Your Password' 
-					name='password2' 
-					minLength='6'
-					value={password2}
-					onChange={e => onChange(e)}
-					required 
-				/>
-				<input type='submit' value='Register' />
+				<div className='mb-4'>
+					<label 
+						className='block text-gray-700 text-sm font-bold mb-2' 
+						htmlFor='name'
+					>
+						Name:
+					</label>
+					<input 
+						className='w-full py-2 px-3
+									shadow border rounded
+									text-gray-700
+									focus:outline-none focus:shadow-outline'
+						type='text' 
+						placeholder='Name' 
+						name='name'
+						id='name'
+						value={name} 
+						onChange={e => onChange(e)}
+						required 
+					/>
+				</div>
+				<div className='mb-4'>
+					<label 
+						className='block text-gray-700 text-sm font-bold mb-2' 
+						htmlFor='email'
+					>
+						Email Address:
+					</label>
+					<input 
+						className='w-full py-2 px-3
+									shadow border rounded
+									text-gray-700
+									focus:outline-none focus:shadow-outline'
+						type='email' 
+						placeholder='Email Address' 
+						name='email'
+						id='email'
+						value={email}
+						onChange={e => onChange(e)}
+						required
+					/>
+				</div>
+				<div className='mb-4'>
+					<label 
+						className='block text-gray-700 text-sm font-bold mb-2' 
+						htmlFor='password'
+					>
+						Password:
+					</label>
+					<input 
+						className='w-full py-2 px-3
+									shadow border rounded
+									text-gray-700
+									focus:outline-none focus:shadow-outline'
+						type='password' 
+						placeholder='*******' 
+						name='password' 
+						id='password'
+						minLength='6'
+						value={password}
+						onChange={e => onChange(e)}
+						required
+					/>
+				</div>
+				<div className='mb-6'>
+					<label 
+						className='block text-gray-700 text-sm font-bold mb-2' 
+						htmlFor='password2'
+					>
+						Re-enter your password:
+					</label>
+					<input 
+						className='w-full py-2 px-3
+									shadow border rounded
+									text-gray-700
+									focus:outline-none focus:shadow-outline'
+						type='password' 
+						placeholder='********' 
+						name='password2'
+						id='password2'
+						minLength='6'
+						value={password2}
+						onChange={e => onChange(e)}
+						required 
+					/>
+				</div>
+				<div className='flex items-center'>
+					<button 
+						className='bg-blue-500 text-white font-bold rounded 
+									px-4 py-2
+									transition duration-200 ease-in-out hover:bg-blue-400
+									rounded focus:outline-none focus:shadow-outline'
+						type='button'
+					>
+						Register
+					</button>
+				</div>
 			</form>
-		</Fragment>
+		</div>
 	);
 };
 

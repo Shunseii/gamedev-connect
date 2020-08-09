@@ -14,7 +14,7 @@ const Landing = () => {
 									transition duration-200 ease-in-out hover:bg-blue-400' 
 						to="/register"
 					>
-						Sign up
+						Register
 					</Link>
 					<Link 
 						className='bg-blue-500 text-white font-bold rounded 

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -52,7 +52,7 @@ const Register = (props) => {
 						px-8 pt-2 pb-8 mb-4'
 		>
 			<h4 className='text-sm'>New users</h4>
-			<h2 className='pb-4 text-4xl text-bold'>Sign Up</h2>
+			<h2 className='pb-4 text-4xl text-bold'>Register</h2>
 
 			<form onSubmit={e => onSubmit(e)}>
 				<div className='mb-4'>

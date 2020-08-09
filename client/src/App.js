@@ -7,10 +7,11 @@ import store from './store';
 
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
-import './App.css';
+import './tailwind.output.css';
 
 const App = () => (
 	<Provider store={store}>
@@ -19,6 +20,7 @@ const App = () => (
 				<Navbar />
 				<Route exact path='/' component={ Landing } />
 				<section className='flex items-center justify-center h-screen'>
+					<Alert />
 					<Switch>
 						<Route exact path='/register' component={ Register } />
 						<Route exact path='/login' component={ Login } />

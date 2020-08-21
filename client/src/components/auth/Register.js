@@ -49,97 +49,101 @@ const Register = ({ setAlert }) => {
 	return (
 		<div className='flex flex-col
 						shadow-md rounded
-						px-8 pt-2 pb-8 mb-4'
+						px-8 pt-2 pb-8 my-auto'
 		>
 			<h4 className='text-sm'>New users</h4>
 			<h2 className='pb-4 text-4xl text-bold'>Register</h2>
 
 			<form onSubmit={e => onSubmit(e)}>
-				<div className='mb-4'>
-					<label 
-						className='block text-gray-700 text-sm font-bold mb-2' 
-						htmlFor='name'
-					>
-						Name:
-					</label>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='text' 
-						placeholder='Name' 
-						name='name'
-						id='name'
-						value={name} 
-						onChange={e => onChange(e)}
-						required 
-					/>
+				<div className='flex flex-row mb-4'>
+					<div className='mr-5'>
+						<label 
+							className='block text-gray-700 text-sm font-bold mb-2' 
+							htmlFor='name'
+						>
+							Name:
+						</label>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='text' 
+							placeholder='Name' 
+							name='name'
+							id='name'
+							value={name} 
+							onChange={e => onChange(e)}
+							required 
+						/>
+					</div>
+					<div>
+						<label 
+							className='block text-gray-700 text-sm font-bold mb-2' 
+							htmlFor='email'
+						>
+							Email Address:
+						</label>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='email' 
+							placeholder='Email Address' 
+							name='email'
+							id='email'
+							value={email}
+							onChange={e => onChange(e)}
+							required
+						/>
+					</div>
 				</div>
-				<div className='mb-4'>
-					<label 
-						className='block text-gray-700 text-sm font-bold mb-2' 
-						htmlFor='email'
-					>
-						Email Address:
-					</label>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='email' 
-						placeholder='Email Address' 
-						name='email'
-						id='email'
-						value={email}
-						onChange={e => onChange(e)}
-						required
-					/>
-				</div>
-				<div className='mb-4'>
-					<label 
-						className='block text-gray-700 text-sm font-bold mb-2' 
-						htmlFor='password'
-					>
-						Password:
-					</label>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='password' 
-						placeholder='*******' 
-						name='password' 
-						id='password'
-						minLength='6'
-						value={password}
-						onChange={e => onChange(e)}
-						required
-					/>
-				</div>
-				<div className='mb-6'>
-					<label 
-						className='block text-gray-700 text-sm font-bold mb-2' 
-						htmlFor='password2'
-					>
-						Re-enter your password:
-					</label>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='password' 
-						placeholder='********' 
-						name='password2'
-						id='password2'
-						minLength='6'
-						value={password2}
-						onChange={e => onChange(e)}
-						required 
-					/>
+				<div className='flex flex-row mb-4'>
+					<div className='mr-5'>
+						<label 
+							className='block text-gray-700 text-sm font-bold mb-2' 
+							htmlFor='password'
+						>
+							Password:
+						</label>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='password' 
+							placeholder='*******' 
+							name='password' 
+							id='password'
+							minLength='6'
+							value={password}
+							onChange={e => onChange(e)}
+							required
+						/>
+					</div>
+					<div>
+						<label 
+							className='block text-gray-700 text-sm font-bold mb-2' 
+							htmlFor='password2'
+						>
+							Re-enter your password:
+						</label>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='password' 
+							placeholder='********' 
+							name='password2'
+							id='password2'
+							minLength='6'
+							value={password2}
+							onChange={e => onChange(e)}
+							required 
+						/>
+					</div>
 				</div>
 				<div className='flex items-center'>
 					<input 

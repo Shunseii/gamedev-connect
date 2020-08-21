@@ -18,9 +18,9 @@ const App = () => (
 		<Router>
 			<Fragment>
 				<Navbar />
-				<Route exact path='/' component={ Landing } />
-				<section className='flex items-center justify-center h-screen'>
+				<section className='flex flex-col mt-20 items-center h-4/5'>	
 					<Alert />
+					<Route exact path='/' component={ Landing } />
 					<Switch>
 						<Route exact path='/register' component={ Register } />
 						<Route exact path='/login' component={ Login } />

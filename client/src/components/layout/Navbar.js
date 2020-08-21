@@ -6,7 +6,7 @@ import '../../tailwind.output.css';
 const Navbar = () => {
 	return (
 		<nav className='fixed w-full flex justify-between 
-						px-8 py-5
+						px-8 py-5 top-0 left-0
 						border-solid border-b-2 border-gray-200
 						shadow-inner bg-gray-100'
 		>

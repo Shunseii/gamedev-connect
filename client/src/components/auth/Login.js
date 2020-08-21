@@ -42,7 +42,7 @@ const Login = () => {
 	return (
 		<div className='flex flex-col 
 						shadow-md rounded 
-						px-8 pt-2 pb-8 mb-4'
+						px-8 pt-2 pb-8 my-auto'
 		>
 			<h4 className='text-sm'>Existing users</h4>
 			<h2 className='pb-4 text-4xl text-bold'>

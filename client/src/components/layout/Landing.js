@@ -9,16 +9,16 @@ const Landing = () => {
 			<div className='flex justify-around items-center mt-3'>
 				<Link 
 					className='bg-blue-500 text-white font-bold rounded 
-					px-4 py-2
-					transition duration-200 ease-in-out hover:bg-blue-400' 
+								px-4 py-2
+								transition duration-200 ease-in-out hover:bg-blue-400' 
 					to="/register"
 				>
 					Register
 				</Link>
 				<Link 
 					className='bg-blue-500 text-white font-bold rounded 
-					px-4 py-2
-					transition duration-200 ease-in-out hover:bg-blue-400' 
+								px-4 py-2
+								transition duration-200 ease-in-out hover:bg-blue-400' 
 					to="/login"
 				>
 					Login

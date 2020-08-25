@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Redux
@@ -11,24 +11,37 @@ import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 
+import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken';
+
 import './tailwind.output.css';
 
-const App = () => (
-	<Provider store={store}>
-		<Router>
-			<Fragment>
-				<Navbar />
-				<section className='flex flex-col mt-20 items-center h-4/5'>	
-					<Alert />
-					<Route exact path='/' component={ Landing } />
-					<Switch>
-						<Route exact path='/register' component={ Register } />
-						<Route exact path='/login' component={ Login } />
-					</Switch>
-				</section>
-			</Fragment>
-		</Router>
-	</Provider>
-);
+if (localStorage.token) {
+	setAuthToken(localStorage.token);
+}
+
+const App = () => {
+	useEffect(() => {
+		store.dispatch(loadUser());
+	}, []);
+
+	return (
+		<Provider store={store}>
+			<Router>
+				<Fragment>
+					<Navbar />
+					<section className='flex flex-col mt-20 items-center h-4/5'>	
+						<Alert />
+						<Route exact path='/' component={ Landing } />
+						<Switch>
+							<Route exact path='/register' component={ Register } />
+							<Route exact path='/login' component={ Login } />
+						</Switch>
+					</section>
+				</Fragment>
+			</Router>
+		</Provider>
+	)
+};
 
 export default App;

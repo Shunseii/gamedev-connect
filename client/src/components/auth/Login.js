@@ -21,11 +21,11 @@ const Login = ({ login, isAuthenticated }) => {
 	const onSubmit = async e => {
 		e.preventDefault();
 		login({ email, password });
-
-		if (isAuthenticated) {
-			return <Redirect to='/dashboard' />
-		}
 	};
+
+	if (isAuthenticated) {
+		return <Redirect to='/dashboard' />;
+	}
 
 	return (
 		<div className='flex flex-col 

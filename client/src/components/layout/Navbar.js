@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { HiCode } from 'react-icons/hi';
+import { logout } from '../../actions/auth';
 
 import '../../tailwind.output.css';
 
-const Navbar = ({ isAuthenticated }) => {
+const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 	return (
 		<nav className='fixed w-full flex justify-between 
 						px-8 py-5 top-0 left-0
@@ -20,9 +21,12 @@ const Navbar = ({ isAuthenticated }) => {
 				</Link>
 			</h1>
 			<ul className='inline-flex w-1/4 justify-around'>
-				<li className='hover:text-gray-300 font-semibold'><Link to="/">Devs</Link></li>
+				<li className='hover:text-gray-300 font-semibold'><Link to="/">People</Link></li>
 				{ isAuthenticated ? 		
-				<li className='hover:text-gray-300 font-semibold'>Logout</li> :
+				<Fragment>
+					<li className='hover:text-gray-300 font-semibold'><Link to='/dashboard'>Profile</Link></li>
+					<li className='hover:text-gray-300 font-semibold'><Link to='/login' onClick={logout}> Logout</Link></li>
+				</Fragment> :
 				<Fragment>
 					<li className='hover:text-gray-300 font-semibold'><Link to="/register">Register</Link></li>
 					<li className='hover:text-gray-300 font-semibold'><Link to="/login">Login</Link></li>
@@ -34,13 +38,15 @@ const Navbar = ({ isAuthenticated }) => {
 };
 
 Navbar.propTypes = {
-	isAuthenticated: PropTypes.bool
+	auth: PropTypes.object.isRequired,
+	logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-	isAuthenticated: state.auth.isAuthenticated
+	auth: state.auth
 });
 
 export default connect(
-	mapStateToProps
+	mapStateToProps,
+	{ logout }
 )(Navbar);

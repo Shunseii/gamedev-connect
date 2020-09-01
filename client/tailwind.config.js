@@ -7,7 +7,7 @@ module.exports = {
 		'public/**/*.html'
 	],
 	theme: {
-		extend: {	
+		extend: {
 			height: {
 				'1/5': '20%',
 				'2/5': '40%',

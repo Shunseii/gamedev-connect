@@ -44,6 +44,11 @@ const CreateProfile = () => {
 		instagram
 	} = formData;
 
+	const onChange = e => setFormData({
+		...formData,
+		[e.target.name]: e.target.value
+	});
+
 	return (
 		<div className='flex flex-col 
 						shadow-md rounded 
@@ -53,6 +58,7 @@ const CreateProfile = () => {
 				Create a Profile
 			</h2>
 			<hr className='mb-4 border-gray-400' />
+			<p className='text-sm text-gray-500 mb-4'>* is a required field</p>
 			<form>
 				<div className='mb-4'>
 					<input 
@@ -66,6 +72,7 @@ const CreateProfile = () => {
 						name='company'
 						id='company'
 						value={company}
+						onChange={e => onChange(e)}
 					/>
 					<p
 						className='block text-gray-700 text-sm mt-2'
@@ -80,11 +87,12 @@ const CreateProfile = () => {
 									appearance-none 
 									text-gray-700
 									focus:outline-none focus:shadow-outline'
-						type='text' 
+						type='url' 
 						placeholder='Website URL' 
 						name='website'
 						id='website'
 						value={website}
+						onChange={e => onChange(e)}
 					/>
 					<p
 						className='block text-gray-700 text-sm mt-2'
@@ -104,6 +112,7 @@ const CreateProfile = () => {
 						name='location'
 						id='location'
 						value={location}
+						onChange={e => onChange(e)}
 					/>
 					<p
 						className='block text-gray-700 text-sm mt-2'
@@ -121,6 +130,7 @@ const CreateProfile = () => {
 						name='status'
 						id='status'
 						value={status}
+						onChange={e => onChange(e)}
 						required
 					>
 						<option value='0' disabled className='text-gray-600'>--Select your Profession--</option>
@@ -148,6 +158,7 @@ const CreateProfile = () => {
 						name='skills'
 						id='skills'
 						value={skills}
+						onChange={e => onChange(e)}
 						required
 					/>
 					<p
@@ -168,6 +179,7 @@ const CreateProfile = () => {
 						name='githubUser'
 						id='githubUser'
 						value={githubUser}
+						onChange={e => onChange(e)}
 					/>
 					<p
 						className='block text-gray-700 text-sm mt-2'
@@ -187,6 +199,7 @@ const CreateProfile = () => {
 						name='bio'
 						id='bio'
 						value={bio}
+						onChange={e => onChange(e)}
 					/>
 					<p
 						className='block text-gray-700 text-sm mt-2'
@@ -227,11 +240,12 @@ const CreateProfile = () => {
 												appearance-none 
 												text-gray-700
 												focus:outline-none focus:shadow-outline'
-									type='text' 
+									type='url' 
 									placeholder='Youtube URL' 
 									name='youtube'
 									id='youtube'
 									value={youtube}
+									onChange={e => onChange(e)}
 								/>
 							</div>
 							<div className='flex flex-row mt-3 items-center'>
@@ -242,11 +256,12 @@ const CreateProfile = () => {
 												appearance-none 
 												text-gray-700
 												focus:outline-none focus:shadow-outline'
-									type='text' 
+									type='url' 
 									placeholder='Twitter URL' 
 									name='twitter'
 									id='twitter'
 									value={twitter}
+									onChange={e => onChange(e)}
 								/>
 							</div>
 							<div className='flex flex-row mt-3 items-center'>
@@ -257,11 +272,12 @@ const CreateProfile = () => {
 												appearance-none 
 												text-gray-700
 												focus:outline-none focus:shadow-outline'
-									type='text' 
+									type='url' 
 									placeholder='Facebook URL' 
 									name='facebook'
 									id='facebook'
 									value={facebook}
+									onChange={e => onChange(e)}
 								/>
 							</div>
 							<div className='flex flex-row mt-3 items-center'>
@@ -272,11 +288,12 @@ const CreateProfile = () => {
 												appearance-none 
 												text-gray-700
 												focus:outline-none focus:shadow-outline'
-									type='text' 
+									type='url' 
 									placeholder='Instagram URL' 
 									name='instagram'
 									id='instagram'
 									value={instagram}
+									onChange={e => onChange(e)}
 								/>
 							</div>
 							<div className='flex flex-row mt-3 items-center'>
@@ -287,11 +304,12 @@ const CreateProfile = () => {
 												appearance-none 
 												text-gray-700
 												focus:outline-none focus:shadow-outline'
-									type='text' 
+									type='url' 
 									placeholder='LinkedIn URL' 
 									name='linkedin'
 									id='linkedin'
 									value={linkedin}
+									onChange={e => onChange(e)}
 								/>
 							</div>
 						</div>

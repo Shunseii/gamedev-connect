@@ -1,22 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 
 import LoadingSpinner from '../layout/LoadingSpinner/LoadingSpinner';
 
-const Dashboard = ({ getCurrentProfile, auth, profile }) => {
+const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) => {
 	useEffect(() => {
 		getCurrentProfile();
 	}, []);
 
-	if (profile.loading) {
+	if (loading && profile === null) {
 		return <LoadingSpinner />;
 	}
 
 	return (
 		<div>	
-			<p>Dashboard</p>
+			<h1 className='text-4xl font-semibold text-teal-600'>
+				Dashboard
+			</h1>
+			<p className='text-lg'>Welcome { auth.user && auth.user.name }</p>
+
+			{ !profile ? 
+			<Fragment>No</Fragment> : 
+			<Fragment>Has</Fragment>
+			}
 		</div>
 	);
 };

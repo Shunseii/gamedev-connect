@@ -1,8 +1,9 @@
 import React, { useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../actions/profile';
 
+import { getCurrentProfile } from '../../actions/profile';
 import LoadingSpinner from '../layout/LoadingSpinner/LoadingSpinner';
 
 const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) => {
@@ -21,9 +22,19 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 			</h1>
 			<p className='text-lg'>Welcome { auth.user && auth.user.name }</p>
 
-			{ !profile ? 
-			<Fragment>No</Fragment> : 
-			<Fragment>Has</Fragment>
+			{profile === null ? 
+				<div className='flex flex-col mt-6'>
+					<p>You do not have a profile. Would you like to create one?</p>
+					<Link 
+						to='/create-profile'
+						className='bg-blue-500 text-white font-semibold rounded
+									px-4 py-2 mt-4 self-start
+									transition duration-200 ease-in-out hover:bg-blue-400'
+					>
+						Create Profile
+					</Link>
+				</div> : 
+				<Fragment>Has</Fragment>
 			}
 		</div>
 	);

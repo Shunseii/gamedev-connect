@@ -22,6 +22,6 @@ export const getCurrentProfile = () => async dispatch => {
 			payload: { msg: err.response.data.msg, status: err.response.status }
 		});
 
-		dispatch(setAlert(err.response.data.msg, 'failure'));
+		// dispatch(setAlert(err.response.data.msg, 'failure'));
 	}
 };

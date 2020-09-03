@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import { getCurrentProfile } from '../../actions/profile';
 import LoadingSpinner from '../layout/LoadingSpinner/LoadingSpinner';
+import DashboardActions from './DashboardActions';
 
 const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) => {
 	useEffect(() => {
@@ -34,7 +35,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 						Create Profile
 					</Link>
 				</div> : 
-				<Fragment>Has</Fragment>
+				<DashboardActions />
 			}
 		</div>
 	);

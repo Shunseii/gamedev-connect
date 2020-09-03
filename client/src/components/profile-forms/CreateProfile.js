@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { 
 	FaYoutube, 
@@ -10,12 +11,13 @@ import {
 	FaPlus,
 	FaMinus
 } from 'react-icons/fa';
+import { createProfile } from '../../actions/profile';
 
-const CreateProfile = () => {
+const CreateProfile = ({ createProfile, history }) => {
 	const [formData, setFormData] = useState({ 
 		company: '',
 		website: '',
-		status: '',
+		status: 'Developer',
 		location: '',
 		skills: '',
 		githubUser: '',
@@ -49,6 +51,11 @@ const CreateProfile = () => {
 		[e.target.name]: e.target.value
 	});
 
+	const onSubmit = (e) => {
+		e.preventDefault();
+		createProfile(formData, history);
+	};
+
 	return (
 		<div className='flex flex-col 
 						shadow-md rounded 
@@ -59,7 +66,7 @@ const CreateProfile = () => {
 			</h2>
 			<hr className='mb-4 border-gray-400' />
 			<p className='text-sm text-gray-500 mb-4'>* is a required field</p>
-			<form>
+			<form onSubmit={e => onSubmit(e)}>
 				<div className='flex flex-row justify-between mb-4'>
 					<div className='mr-8'>
 						<select 
@@ -323,7 +330,7 @@ const CreateProfile = () => {
 						className='bg-blue-500 text-white font-bold rounded 
 									px-4 py-2
 									transition duration-200 ease-in-out hover:bg-blue-400
-									rounded focus:outline-none focus:shadow-outline'
+									rounded cursor-pointer focus:outline-none focus:shadow-outline'
 						type='submit'
 						value='Submit'
 					/>
@@ -334,7 +341,11 @@ const CreateProfile = () => {
 };
 
 CreateProfile.propTypes = {
-	
+	createProfile: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired
 };
 
-export default CreateProfile;
+export default connect(
+	null, 
+	{ createProfile }
+)(withRouter(CreateProfile));

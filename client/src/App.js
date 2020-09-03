@@ -33,7 +33,7 @@ const App = () => {
 			<Router>
 				<Fragment>
 					<Navbar />
-					<section className='flex flex-col mt-20 items-center h-4/5'>	
+					<section className='flex flex-col mt-24 items-center h-4/5'>	
 						<Alert />
 						<Route exact path='/' component={ Landing } />
 						<Switch>

@@ -60,25 +60,54 @@ const CreateProfile = () => {
 			<hr className='mb-4 border-gray-400' />
 			<p className='text-sm text-gray-500 mb-4'>* is a required field</p>
 			<form>
-				<div className='mb-4'>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded 
-									appearance-none 
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='text' 
-						placeholder='Company Name' 
-						name='company'
-						id='company'
-						value={company}
-						onChange={e => onChange(e)}
-					/>
-					<p
-						className='block text-gray-700 text-sm mt-2'
-					>
-						Current company
-					</p>
+				<div className='flex flex-row justify-between mb-4'>
+					<div className='mr-8'>
+						<select 
+							className='w-full py-2 px-3
+										shadow border rounded 
+										appearance-none cursor-pointer
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							name='status'
+							id='status'
+							value={status}
+							onChange={e => onChange(e)}
+							required
+						>
+							<option value='0' disabled className='text-gray-600'>--Select your Profession--</option>
+							<option value='Developer'>Developer</option>
+							<option value='Audio Engineer'>Audio Engineer</option>
+							<option value='Graphics Designer'>Graphics Designer</option>
+							<option value='Student or Learning'>Student or Learning</option>
+							<option value='Other'>Other</option>
+						</select>
+						<p
+							className='block text-gray-700 text-sm mt-2'
+						>
+							*Specify your job/role
+						</p>
+					</div>
+					<div>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded 
+										appearance-none 
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='text' 
+							placeholder='*Skills' 
+							name='skills'
+							id='skills'
+							value={skills}
+							onChange={e => onChange(e)}
+							required
+						/>
+						<p
+							className='block text-gray-700 text-sm mt-2'
+						>
+							*Enter your skills (ex. HTML, CSS, Javascript)
+						</p>
+					</div>
 				</div>
 				<div className='mb-4'>
 					<input 
@@ -108,84 +137,59 @@ const CreateProfile = () => {
 									text-gray-700
 									focus:outline-none focus:shadow-outline'
 						type='text' 
-						placeholder='Location' 
-						name='location'
-						id='location'
-						value={location}
+						placeholder='Company Name' 
+						name='company'
+						id='company'
+						value={company}
 						onChange={e => onChange(e)}
 					/>
 					<p
 						className='block text-gray-700 text-sm mt-2'
 					>
-						City and Province (ex. Toronto, ON)
+						Current company
 					</p>
 				</div>
-				<div className='mb-4'>
-					<select 
-						className='w-full py-2 px-3
-									shadow border rounded 
-									appearance-none 
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						name='status'
-						id='status'
-						value={status}
-						onChange={e => onChange(e)}
-						required
-					>
-						<option value='0' disabled className='text-gray-600'>--Select your Profession--</option>
-						<option value='Developer'>Developer</option>
-						<option value='Audio Engineer'>Audio Engineer</option>
-						<option value='Graphics Designer'>Graphics Designer</option>
-						<option value='Student or Learning'>Student or Learning</option>
-						<option value='Other'>Other</option>
-					</select>
-					<p
-						className='block text-gray-700 text-sm mt-2'
-					>
-						*Specify your job/role
-					</p>
-				</div>
-				<div className='mb-4'>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded 
-									appearance-none 
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='text' 
-						placeholder='*Skills' 
-						name='skills'
-						id='skills'
-						value={skills}
-						onChange={e => onChange(e)}
-						required
-					/>
-					<p
-						className='block text-gray-700 text-sm mt-2'
-					>
-						*Enter your skills (ex. HTML, CSS, Javascript)
-					</p>
-				</div>
-				<div className='mb-4'>
-					<input 
-						className='w-full py-2 px-3
-									shadow border rounded 
-									appearance-none 
-									text-gray-700
-									focus:outline-none focus:shadow-outline'
-						type='text' 
-						placeholder='Github Username' 
-						name='githubUser'
-						id='githubUser'
-						value={githubUser}
-						onChange={e => onChange(e)}
-					/>
-					<p
-						className='block text-gray-700 text-sm mt-2'
-					>
-						Your Github username 
-					</p>
+				<div className='flex flex-row mb-4'>
+					<div className='mr-8'>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded 
+										appearance-none 
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='text' 
+							placeholder='Github Username' 
+							name='githubUser'
+							id='githubUser'
+							value={githubUser}
+							onChange={e => onChange(e)}
+						/>
+						<p
+							className='block text-gray-700 text-sm mt-2'
+						>
+							Your Github username 
+						</p>
+					</div>
+					<div>
+						<input 
+							className='w-full py-2 px-3
+										shadow border rounded 
+										appearance-none 
+										text-gray-700
+										focus:outline-none focus:shadow-outline'
+							type='text' 
+							placeholder='Location' 
+							name='location'
+							id='location'
+							value={location}
+							onChange={e => onChange(e)}
+						/>
+						<p
+							className='block text-gray-700 text-sm mt-2'
+						>
+							City and Province (ex. Toronto, ON)
+						</p>
+					</div>
 				</div>
 				<div className='mb-4'>
 					<textarea 
@@ -218,13 +222,11 @@ const CreateProfile = () => {
 					>
 						{!displaySocialInputs ? 
 							<FaPlus 
-								className='text-white text-sm bg-teal-400 rounded p-px
-											transition duration-200 ease-in-out hover:bg-teal-300 rounded'
+								className='text-black text-sm'
 							/>
 							:
 							<FaMinus
-								className='text-white text-sm bg-red-400 rounded p-px
-											transition duration-200 ease-in-out hover:bg-red-300 rounded'
+								className='text-black text-sm'
 							/>
 						}
 					</button>

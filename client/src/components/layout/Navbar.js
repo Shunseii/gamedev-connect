@@ -5,13 +5,11 @@ import PropTypes from 'prop-types';
 import { HiCode } from 'react-icons/hi';
 import { logout } from '../../actions/auth';
 
-import '../../tailwind.output.css';
-
 const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 	return (
 		<nav className='fixed w-full flex justify-between 
-						px-8 py-5 top-0 left-0
-						border-solid border-b-2 border-gray-200
+						px-8 pt-5 pb-4 top-0 left-0
+						border-solid border-b-4 border-gray-700
 						shadow-inner bg-teal-600 text-white'
 		>
 			<h1>
@@ -22,18 +20,19 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 			</h1>
 			<ul className='inline-flex w-1/4 justify-around'>
 				<li className='hover:text-gray-300 font-semibold'><Link to="/">People</Link></li>
-				{ isAuthenticated ? 		
-				<Fragment>
-					<li className='hover:text-gray-300 font-semibold'><Link to='/dashboard'>Profile</Link></li>
-					<li className='hover:text-gray-300 font-semibold'><Link to='/login' onClick={logout}> Logout</Link></li>
-				</Fragment> :
-				<Fragment>
-					<li className='hover:text-gray-300 font-semibold'><Link to="/register">Register</Link></li>
-					<li className='hover:text-gray-300 font-semibold'><Link to="/login">Login</Link></li>
-				</Fragment>
+				{isAuthenticated ?
+					<Fragment>
+						<li className='hover:text-gray-300 font-semibold'><Link to='/dashboard'>Profile</Link></li>
+						<li className='hover:text-gray-300 font-semibold'><Link to='/login' onClick={logout}> Logout</Link></li>
+					</Fragment>
+					:
+					<Fragment>
+						<li className='hover:text-gray-300 font-semibold'><Link to="/register">Register</Link></li>
+						<li className='hover:text-gray-300 font-semibold'><Link to="/login">Login</Link></li>
+					</Fragment>
 				}
-				</ul>
-			</nav>
+			</ul>
+		</nav>
 	);
 };
 

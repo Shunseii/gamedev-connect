@@ -1,6 +1,5 @@
 .LoadingSpinner__Container {
 	display: inline-block;
 	border-style: solid;
-	border-opacity: 0.5;
-	border-top-color: #319795
+	border-top-color: #319795 !important;
 }

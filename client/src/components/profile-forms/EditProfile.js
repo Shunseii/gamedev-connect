@@ -11,7 +11,7 @@ import {
 	FaPlus,
 	FaMinus
 } from 'react-icons/fa';
-import { BsChevronDown } from 'react-icons/bs';
+import { BsChevronDown, BsChevronLeft } from 'react-icons/bs';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 import LoadingSpinner from '../layout/LoadingSpinner/LoadingSpinner';
 
@@ -91,8 +91,15 @@ const EditProfile = ({
 						shadow-md rounded 
 						px-8 pt-2 pb-8 my-auto'
 		>
+			<div 
+				className='flex flex-row items-center text-sm text-gray-700 cursor-pointer w-fit'
+				onClick={() => history.goBack()}
+			>
+				<BsChevronLeft className='inline' />
+				<p className='inline ml-1'>Go back</p>
+			</div>
 			<h2 className='pb-1 text-4xl text-bold'>
-				Create a Profile
+				Edit your Profile
 			</h2>
 			<hr className='mb-4 border-gray-400' />
 			<p className='text-sm text-gray-500 mb-4'>* is a required field</p>

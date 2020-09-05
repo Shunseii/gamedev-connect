@@ -11,6 +11,7 @@ import {
 	FaPlus,
 	FaMinus
 } from 'react-icons/fa';
+import { BsChevronDown } from 'react-icons/bs';
 import { createProfile } from '../../actions/profile';
 
 const CreateProfile = ({ createProfile, history }) => {
@@ -88,8 +89,9 @@ const CreateProfile = ({ createProfile, history }) => {
 							<option value='Student or Learning'>Student or Learning</option>
 							<option value='Other'>Other</option>
 						</select>
+						<BsChevronDown className='inline -ml-6' />
 						<p
-							className='block text-gray-700 text-sm mt-2'
+							className='block text-gray-700 font-semibold text-sm mt-2'
 						>
 							*Specify your job/role
 						</p>
@@ -110,7 +112,7 @@ const CreateProfile = ({ createProfile, history }) => {
 							required
 						/>
 						<p
-							className='block text-gray-700 text-sm mt-2'
+							className='block text-gray-700 font-semibold text-sm mt-2'
 						>
 							*Enter your skills (ex. HTML, CSS, Javascript)
 						</p>
@@ -218,22 +220,24 @@ const CreateProfile = ({ createProfile, history }) => {
 						Write a short description of yourself
 					</p>
 				</div>
-				<div className='flex flex-row items-baseline justify-between'>
+				<div 
+					onClick={(e) => {
+						e.preventDefault();
+						return toggleSocialInputs(!displaySocialInputs);
+					}}
+					className='flex flex-row items-baseline justify-between'
+				>
 					<h1 className='text-xl text-semibold text-gray-600'>Social Media</h1>
 					<button 
-						onClick={(e) => {
-							e.preventDefault();
-							return toggleSocialInputs(!displaySocialInputs);
-						}}
 						className='focus:outline-none'
 					>
 						{!displaySocialInputs ? 
 							<FaPlus 
-								className='text-black text-sm'
+								className='text-gray-600 text-sm'
 							/>
 							:
 							<FaMinus
-								className='text-black text-sm'
+								className='text-gray-600 text-sm'
 							/>
 						}
 					</button>

@@ -19,7 +19,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 	}
 
 	return (
-		<div className='w-1/3'>
+		<div className='w-2/5'>
 			<h1 className='text-4xl font-semibold text-teal-600'>
 				Dashboard
 			</h1>

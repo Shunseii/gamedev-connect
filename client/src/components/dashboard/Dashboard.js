@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import LoadingSpinner from '../layout/LoadingSpinner/LoadingSpinner';
 import DashboardActions from './DashboardActions';
+import Experience from './Experience';
+import Education from './Education';
 
 const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) => {
 	useEffect(() => {
@@ -17,7 +19,7 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 	}
 
 	return (
-		<div>	
+		<div className='w-1/3'>
 			<h1 className='text-4xl font-semibold text-teal-600'>
 				Dashboard
 			</h1>
@@ -35,7 +37,11 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 						Create Profile
 					</Link>
 				</div> : 
-				<DashboardActions />
+				<Fragment>
+					<DashboardActions />
+					<Education education={profile.education} />
+					<Experience experience={profile.experience} />
+				</Fragment>
 			}
 		</div>
 	);

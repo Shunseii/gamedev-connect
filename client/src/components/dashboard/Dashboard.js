@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getCurrentProfile } from '../../actions/profile';
+import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 import LoadingSpinner from '../layout/LoadingSpinner/LoadingSpinner';
 import DashboardActions from './DashboardActions';
 import Experience from './Experience';
 import Education from './Education';
 
-const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) => {
+const Dashboard = ({ 
+	deleteAccount, 
+	getCurrentProfile, 
+	auth, 
+	profile: { loading, profile } 
+}) => {
 	useEffect(() => {
 		getCurrentProfile();
 	}, []);
@@ -20,9 +25,21 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 
 	return (
 		<div className='w-2/5'>
-			<h1 className='text-4xl font-semibold text-teal-600'>
-				Dashboard
-			</h1>
+			<div className='flex flex-row items-center justify-between'>
+				<h1 className='text-4xl font-semibold text-teal-600'>
+					My Dashboard
+				</h1>
+				<button 
+					onClick={e => {
+						e.preventDefault();
+						deleteAccount();
+					}} 
+					className='text-white font-bold px-2 py-1 rounded bg-red-700
+								transition-colors duration-200 ease-in-out hover:bg-red-800'
+				>
+					Delete account
+				</button>
+			</div>
 			<p className='text-lg'>Welcome { auth.user && auth.user.name }</p>
 
 			{profile === null ? 
@@ -50,7 +67,8 @@ const Dashboard = ({ getCurrentProfile, auth, profile: { loading, profile } }) =
 Dashboard.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
-	profile: PropTypes.object.isRequired
+	profile: PropTypes.object.isRequired,
+	deleteAccount: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -60,5 +78,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{ getCurrentProfile }
+	{ getCurrentProfile, deleteAccount }
 )(Dashboard);

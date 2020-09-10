@@ -18,7 +18,15 @@ const Education = ({ deleteEducation, education }) => {
 		<div className='flex flex-col bg-gray-100 px-6 py-4 rounded shadow-md'>
 			<h2 className='text-2xl self-center font-semibold'>Education</h2>
 
-			{education.map(ed => (
+			{education.sort((ed1, ed2) => {
+				if (ed1.from < ed2.from) 
+					return 1;
+
+				if (ed1.from > ed2.from) 
+					return -1;
+
+				return 0;
+			}).map(ed => (
 				<Fragment key={ed._id}>
 					<div className='flex flex-col my-4'>
 						<div className='flex flex-row justify-between'>
@@ -32,7 +40,7 @@ const Education = ({ deleteEducation, education }) => {
 							<span className='self-center'>
 								<Moment format='MMM YYYY'>{ed.from}</Moment> 
 								-
-								{ed.current ? 
+								{!ed.current && ed.to ? 
 									<Moment format='MMM YYYY'>{ed.to}</Moment> 
 									: 
 									<span>Current</span>

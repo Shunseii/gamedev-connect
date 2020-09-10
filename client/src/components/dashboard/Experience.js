@@ -17,8 +17,15 @@ const Experience = ({ deleteExperience, experience }) => {
 	return (
 		<div className='flex flex-col bg-gray-100 px-6 py-4 rounded shadow-md'>
 			<h2 className='text-2xl self-center font-semibold'>Experience</h2>
+			{experience.sort((exp1, exp2) => {
+				if (exp1.from < exp2.from) 
+					return 1;
 
-			{experience.map(exp => (
+				if (exp1.from > exp2.from) 
+					return -1;
+
+				return 0;
+			}).map(exp => (
 				<Fragment key={exp._id}>
 					<div className='flex flex-col my-4'>
 						<div className='flex flex-row justify-between'>
@@ -32,7 +39,7 @@ const Experience = ({ deleteExperience, experience }) => {
 							<span className='self-center'>
 								<Moment format='MMM YYYY'>{exp.from}</Moment> 
 								-
-								{exp.current ? 
+								{!exp.current && exp.to ? 
 									<Moment format='MMM YYYY'>{exp.to}</Moment> 
 									: 
 									<span>Current</span>

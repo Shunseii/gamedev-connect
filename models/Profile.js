@@ -83,6 +83,9 @@ const ProfileSchema = new mongoose.Schema({
 			},
 			description: {
 				type: String
+			},
+			location: {
+				type: String
 			}
 		}
 	],

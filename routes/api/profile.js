@@ -235,7 +235,8 @@ router.put('/education', [
 		from,
 		description,
 		to,
-		current
+		current,
+		location
 	} = req.body
 
 	const newEdu = {school, degree, fieldOfStudy, from};
@@ -243,6 +244,7 @@ router.put('/education', [
 	if (to) newEdu.to = to;
 	if (current) newEdu.current = current;
 	if (description) newEdu.description = description;
+	if (location) newEdu.location = location;
 
 	try {
 		const profile = await Profile.findOne({ user: req.user.id });

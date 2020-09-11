@@ -19,7 +19,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
 				</Link>
 			</h1>
 			<ul className='inline-flex w-1/4 justify-around'>
-				<li className='hover:text-gray-300 font-semibold'><Link to="/">People</Link></li>
+				<li className='hover:text-gray-300 font-semibold'><Link to="/profiles">People</Link></li>
 				{isAuthenticated ?
 					<Fragment>
 						<li className='hover:text-gray-300 font-semibold'><Link to='/dashboard'>Profile</Link></li>

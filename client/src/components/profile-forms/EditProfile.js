@@ -122,7 +122,7 @@ const EditProfile = ({
 							<option value='Developer'>Developer</option>
 							<option value='Audio Engineer'>Audio Engineer</option>
 							<option value='Graphics Designer'>Graphics Designer</option>
-							<option value='Student or Learning'>Student or Learning</option>
+							<option value='Student'>Student</option>
 							<option value='Other'>Other</option>
 						</select>
 						<BsChevronDown className='inline -ml-6' />
